@@ -12,11 +12,10 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
 const size = 100;
 const divisions = 100;
 
-const gridHelper = new THREE.GridHelper(size, divisions);
+ 
 
 const cube = new THREE.Mesh(geometry, material);
-
-cube.add(gridHelper);
+ 
 scene.add(cube);
 
 cube.rotation.x += 0.6;
@@ -26,9 +25,16 @@ const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 
 cube.add(line);
 
 camera.position.z = 5;
+camera.rotation.x = 90 * Math.PI / 180
+camera.lookAt(scene.position)
+
+const axesHelper = new THREE.AxesHelper( );
+scene.add( axesHelper );
 
 const animate = function () {
     requestAnimationFrame(animate);
+    cube.position.z -= 0.1;
+    camera.position.z -= 0.2;
     renderer.render(scene, camera);
 };
 

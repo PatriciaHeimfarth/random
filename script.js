@@ -32,6 +32,12 @@ function onDocumentKeyDown(event) {
 
 cube.rotation.x += 0.6;
 
+const planeGeometry = new THREE.PlaneGeometry( 5, 20, 32 );
+const geoMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+const plane = new THREE.Mesh( planeGeometry, geoMaterial );
+
+scene.add( plane );
+
 const edges = new THREE.EdgesGeometry(geometry);
 const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
 cube.add(line);
@@ -45,8 +51,8 @@ scene.add(axesHelper);
 
 const animate = function () {
     requestAnimationFrame(animate);
-    cube.position.z -= 0.1;
-    camera.position.z -= 0.1;
+    cube.position.y += 0.01;
+    camera.position.y += 0.01;
     renderer.render(scene, camera);
 };
 

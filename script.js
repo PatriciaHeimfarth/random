@@ -12,26 +12,23 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
 const size = 10;
 const divisions = 10;
 
-const gridHelper = new THREE.GridHelper( size, divisions );
+const gridHelper = new THREE.GridHelper(size, divisions);
 
 const cube = new THREE.Mesh(geometry, material);
 
-cube.add( gridHelper );
+cube.add(gridHelper);
 scene.add(cube);
 
- 
-const edges = new THREE.EdgesGeometry( geometry );
-const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) );
-cube.add( line );
+cube.rotation.x += 0.6;
+cube.rotation.y += 0.6;
+const edges = new THREE.EdgesGeometry(geometry);
+const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+cube.add(line);
 
 camera.position.z = 5;
 
 const animate = function () {
     requestAnimationFrame(animate);
-
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
     renderer.render(scene, camera);
 };
 

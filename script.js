@@ -20,7 +20,7 @@ cube.add(gridHelper);
 scene.add(cube);
 
 cube.rotation.x += 0.6;
-cube.rotation.y += 0.6;
+ 
 const edges = new THREE.EdgesGeometry(geometry);
 const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
 cube.add(line);

@@ -1,0 +1,24 @@
+{
+  "name": "random",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatriciaHeimfarth/random.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatriciaHeimfarth/random/issues"
+  },
+  "homepage": "https://github.com/PatriciaHeimfarth/random#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "three": "^0.126.1"
+  }
+}

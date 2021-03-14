@@ -8,8 +8,15 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
+const size = 10;
+const divisions = 10;
+
+const gridHelper = new THREE.GridHelper( size, divisions );
+
 const cube = new THREE.Mesh(geometry, material);
+
+cube.add( gridHelper );
 scene.add(cube);
 
 camera.position.z = 5;

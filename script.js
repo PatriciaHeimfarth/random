@@ -9,8 +9,8 @@ document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
-const size = 10;
-const divisions = 10;
+const size = 100;
+const divisions = 100;
 
 const gridHelper = new THREE.GridHelper(size, divisions);
 

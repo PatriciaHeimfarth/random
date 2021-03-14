@@ -13,30 +13,31 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
 var xPos = 0.1;
 
 
-
+const planeWidth = 5;
 
 const cube = new THREE.Mesh(geometry, material);
 
-scene.add(cube);
+
 
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
 
-    if (keyCode == 37) { //left arrow
+    if (keyCode == 37 &&  cube.position.x > -planeWidth / 2) { //left arrow
         cube.position.x -= xPos;
-    } else if (keyCode == 39) { //right arrow
+    } else if (keyCode == 39 &&  cube.position.x < planeWidth / 2) { //right arrow
         cube.position.x += xPos;
     }
 };
 
 cube.rotation.x += 0.6;
 
-const planeGeometry = new THREE.PlaneGeometry( 5, 20, 32 );
+const planeGeometry = new THREE.PlaneGeometry( planeWidth, 200, 32 );
 const geoMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
 const plane = new THREE.Mesh( planeGeometry, geoMaterial );
 
 scene.add( plane );
+plane.add(cube);
 
 const edges = new THREE.EdgesGeometry(geometry);
 const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));

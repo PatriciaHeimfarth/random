@@ -19,6 +19,11 @@ const cube = new THREE.Mesh(geometry, material);
 cube.add( gridHelper );
 scene.add(cube);
 
+ 
+const edges = new THREE.EdgesGeometry( geometry );
+const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) );
+cube.add( line );
+
 camera.position.z = 5;
 
 const animate = function () {
